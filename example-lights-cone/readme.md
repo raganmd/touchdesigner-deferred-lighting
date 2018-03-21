@@ -65,15 +65,23 @@ void main(){
 Essentially, the idea here is that we're encoding information about our scene in color buffers for later combination. In order to properly do this in our scene we need to know point position, normal, color, and uv. This is normally handled without any additional intervention by the programmer, but in the case of working with lots of lights we need to organize our data a little differently. 
 
 ## Light Attributes
+![light attributes](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-attributes.PNG?raw=true)
+
 Next we're going to compute and pack data for the position, color, and falloff for our point lights.
 
 For the sake of sanity / simplicity we'll use a piece of geometry to represent the position of our point lights - similar to the approach used for instancing.
 
 ## Combining Buffers
+![combining buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-combining-buffers.PNG?raw=true)
+
 Next up we combine our color buffers along with our CHOPs that hold the information about our lights location and properites.
 
-## Represeting Lights
+## Representing Lights
+![representing lights](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-represetning-lights.PNG?raw=true)
+
 We can use instances and a render pass to represent our lights as spheres to help get a more accurate sense of where each light is located in our scene.
 
 ## Post Processing for Final Output
+![post process](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-post-process.PNG?raw=true)
+
 Finally we need to asemble our scene and do any final post process bits to get make things clean and tidy.
