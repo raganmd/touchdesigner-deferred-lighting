@@ -2,7 +2,7 @@
 TouchDesigner networks are notoriously difficult to read, and this doc is intended to help shed some light on the ideas explored in this initial sample tox that's largely flat. 
 
 ## Color Buffers
-
+![color buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-color-buffers.PNG?raw=true)
 
 These four color buffers represent all of that information that we need in order to do our lighting calculations further down the line. At this point we haven't done the lighting calculations yet - just set up all of the requisite data so we can compute our lighting in another pass.
 
