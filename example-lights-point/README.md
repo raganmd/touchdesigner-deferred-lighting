@@ -1,4 +1,4 @@
-# TouchDesigner Deferred Lighting - Cone Lights
+# TouchDesigner Deferred Lighting - Point Lights
 TouchDesigner networks are notoriously difficult to read, and this doc is intended to help shed some light on the ideas explored in this initial sample tox that's largely flat. 
 
 ## Color Buffers
