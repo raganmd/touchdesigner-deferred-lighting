@@ -172,3 +172,5 @@ To this end, we can use instances and a render pass to represent our lights as s
 Finally we need to assemble our scene and do any final post process bits to get make things clean and tidy.
 
 Up to this point we haven't done any anti-aliasing, and our instances are in another render pass. To combine all of our pieces, and do take off the sharp edges we need to do a few final pieces of work. First we'll composite our scene elements, then do an anti-aliasing pass. This is also where you might choose to do any other post process treatments like adding a glow or bloom to your render.
+
+![final product](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/piont-lights.gif?raw=true)
