@@ -2,7 +2,7 @@
 TouchDesigner networks are notoriously difficult to read, and this doc is intended to help shed some light on the ideas explored in this initial sample tox that's largely flat. 
 
 ## Color Buffers
-![color buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-color-buffers.PNG?raw=true)
+![color buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-point-color-buffers.PNG?raw=true)
 
 These four color buffers represent all of that information that we need in order to do our lighting calculations further down the line. At this point we haven't done the lighting calculations yet - just set up all of the requisite data so we can compute our lighting in another pass.
 
@@ -65,7 +65,7 @@ void main(){
 Essentially, the idea here is that we're encoding information about our scene in color buffers for later combination. In order to properly do this in our scene we need to know point position, normal, color, and uv. This is normally handled without any additional intervention by the programmer, but in the case of working with lots of lights we need to organize our data a little differently. 
 
 ## Light Attributes
-![light attributes](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-attributes.PNG?raw=true)
+![light attributes](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-point-attributes.PNG?raw=true)
 
 Next we're going to compute and pack data for the position, color, and falloff for our point lights.
 
@@ -79,7 +79,7 @@ When it comes to the color of our lights, we can use a noise or ramp TOP to get 
 This means that sample 0 from each of these three CHOPs all relate to the same light. We pack them in sequences of three channels, since that easily translates to a `vec3` in our next fragment process. 
 
 ## Combining Buffers
-![combining buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-combining-buffers.PNG?raw=true)
+![combining buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-point-combining-buffers.PNG?raw=true)
 
 Next up we combine our color buffers along with our CHOPs that hold the information about our lights location and properties.
 
@@ -167,7 +167,7 @@ At this point we've successfully completed our lighting calculations, had them a
 To this end, we can use instances and a render pass to represent our lights as spheres to help get a more accurate sense of where each light is located in our scene. If you've used instances before in TouchDesigner this should look very familiar. If that's new to you, check out: [Simple Instancing](https://matthewragan.com/2015/03/31/thp-494-598-simple-instancing-touchdesigner/)
 
 ## Post Processing for Final Output
-![post process](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-post-process.PNG?raw=true)
+![post process](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-point-post-process.PNG?raw=true)
 
 Finally we need to assemble our scene and do any final post process bits to get make things clean and tidy.
 
