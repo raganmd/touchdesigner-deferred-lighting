@@ -160,7 +160,7 @@ void main()
 ```
 
 ## Representing Lights
-![representing lights](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-represetning-lights.PNG?raw=true)
+![representing lights](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-point-represetning-lights.PNG?raw=true)
 
 At this point we've successfully completed our lighting calculations, had them accumulate in our scene, and have a slick looking render. However, we probably want to see them represented in some way. In this case we might want to see them just so we can get a sense of if our calculations and data packing is working correctly. 
 
