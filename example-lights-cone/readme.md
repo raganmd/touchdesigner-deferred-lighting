@@ -4,7 +4,7 @@ TouchDesigner networks are notoriously difficult to read, and this doc is intend
 This approach is very similar to point lights, with the additional challenge of needing to think about lights as directional. We'll see that the first stage and last of this process - is consistent with our Point Light example, but in the middle we need to make some changes. We can get started by again with color buffers.
 
 ## Color Buffers
-![color buffers]()
+![color buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-color-buffers.PNG?raw=true)
 
 These four color buffers represent all of that information that we need in order to do our lighting calculations further down the line. At this point we haven't done the lighting calculations yet - just set up all of the requisite data so we can compute our lighting in another pass.
 
@@ -67,7 +67,7 @@ void main(){
 Essentially, the idea here is that we're encoding information about our scene in color buffers for later combination. In order to properly do this in our scene we need to know point position, normal, color, and uv. This is normally handled without any additional intervention by the programmer, but in the case of working with lots of lights we need to organize our data a little differently. 
 
 ## Light Attributes
-![light attributes]()
+![light attributes](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-light-attr.PNG?raw=true)
 
 Here we'll begin to see a divergence from our previous approach.
 
@@ -86,7 +86,7 @@ This means that sample 0 from each of these four CHOPs all relate to the same li
 The additional light cone attribute here is used to describe the radius of the cone and the degree of softness at the edges (again pardon the fact that this isn't yet working).
 
 ## Combining Buffers
-![combining buffers]()
+![combining buffers](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-light-combining-buffers.PNG?raw=true)
 
 Next up we combine our color buffers along with our CHOPs that hold the information about our lights location and properties.
 
@@ -197,7 +197,7 @@ void main()
 If you look at the final pieces of our for loop you'll find that much of this process is borrowed from the example Malcolm wrote (Thanks Malcolm!). This starting point serves as a baseline to help us get started from the position of how other lights are handled in Touch.
 
 ## Representing Lights
-![representing lights]()
+![representing lights](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-light-representing-lights.PNG?raw=true)
 
 At this point we've successfully completed our lighting calculations, had them accumulate in our scene, and have a slick looking render. However, we probably want to see them represented in some way. In this case we might want to see them just so we can get a sense of if our calculations and data packing is working correctly. 
 
@@ -206,10 +206,10 @@ To this end, we can use instances and a render pass to represent our lights as s
 Our divergence here is that rather than using spheres, we're instead using cones to represent our lights. In a future iteration the width of the cone base should scale along with our cone angle, but for now let's celebrate the fact that we have a way to see where our lights are coming from. You'll notice that the rotate attributes generated from the object CHOP are used to describe the rotation of the instances. Ultimately, we probably don't need these representations, but they sure are handy when we're trying to get a sense of what's happening inside of our shader.
 
 ## Post Processing for Final Output
-![post process]()
+![post process](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/example-lights-cone-light-post-process.PNG?raw=true)
 
 Finally we need to assemble our scene and do any final post process bits to get make things clean and tidy.
 
 Up to this point we haven't done any anti-aliasing, and our instances are in another render pass. To combine all of our pieces, and do take off the sharp edges we need to do a few final pieces of work. First we'll composite our scene elements, then do an anti-aliasing pass. This is also where you might choose to do any other post process treatments like adding a glow or bloom to your render.
 
-![final product]()
+![final product](https://github.com/raganmd/touchdesigner-deferred-lighting/blob/master/repo-assets/readme-screenshots/cone-lights.gif?raw=true)
